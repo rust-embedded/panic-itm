@@ -1,0 +1,13 @@
+[package]
+authors = ["Jorge Aparicio <jorge@japaric.io>"]
+categories = ["no-std"]
+description = "Log panic messages using the ITM (Instrumentation Trace Macrocell)"
+keywords = ["panic-impl", "panic", "ITM", "ARM", "Cortex-M"]
+license = "MIT OR Apache-2.0"
+name = "panic-itm"
+repository = "https://github.com/japaric/panic-itm"
+version = "0.1.0"
+
+[dependencies]
+cortex-m = "0.4.3"
+aligned = "0.1.1"
