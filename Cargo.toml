@@ -6,8 +6,8 @@ keywords = ["panic-impl", "panic", "ITM", "ARM", "Cortex-M"]
 license = "MIT OR Apache-2.0"
 name = "panic-itm"
 repository = "https://github.com/japaric/panic-itm"
-version = "0.1.0"
+version = "0.1.1"
 
 [dependencies]
-cortex-m = "0.4.3"
-aligned = "0.1.1"
+aligned = "0.2.0"
+cortex-m = "0.5.0"

@@ -29,15 +29,12 @@
 
 #![deny(missing_docs)]
 #![deny(warnings)]
-#![feature(core_intrinsics)]
 #![feature(lang_items)]
 #![no_std]
 
 extern crate aligned;
 #[macro_use]
 extern crate cortex_m;
-
-use core::intrinsics;
 
 use aligned::Aligned;
 use cortex_m::peripheral::ITM;
@@ -57,10 +54,9 @@ unsafe extern "C" fn panic_fmt(
 
     itm::write_aligned(stim, &Aligned(*b"panicked at '"));
     itm::write_fmt(stim, args);
-    itm::write_str(stim, "', ");
+    itm::write_aligned(stim, &Aligned(*b"', "));
     itm::write_str(stim, file);
     iprintln!(stim, ":{}:{}", line, col);
 
-    // XXX What should be the behavior after logging the message?
-    intrinsics::abort()
+    loop {}
 }
