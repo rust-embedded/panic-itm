@@ -1,7 +1,8 @@
 //! Log panic messages using the ITM (Instrumentation Trace Macrocell)
 //!
 //! This crate contains an implementation of `panic_fmt` that logs panic messages to the ITM
-//! stimulus port 0.
+//! stimulus port 0. Before printing the message the panic handler disables (masks) all the device
+//! specific interrupts. After printing the message the panic handler goes into an infinite loop.
 //!
 //! # Usage
 //!
