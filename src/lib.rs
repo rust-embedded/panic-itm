@@ -30,34 +30,25 @@
 
 #![deny(missing_docs)]
 #![deny(warnings)]
-#![feature(lang_items)]
+#![feature(panic_implementation)]
 #![no_std]
 
-extern crate aligned;
 #[macro_use]
 extern crate cortex_m;
 
-use aligned::Aligned;
-use cortex_m::peripheral::ITM;
-use cortex_m::{interrupt, itm};
+use core::panic::PanicInfo;
 
-#[lang = "panic_fmt"]
-unsafe extern "C" fn panic_fmt(
-    args: core::fmt::Arguments,
-    file: &'static str,
-    line: u32,
-    col: u32,
-) -> ! {
+use cortex_m::peripheral::ITM;
+use cortex_m::interrupt;
+
+#[panic_implementation]
+fn panic(info: &PanicInfo) -> ! {
     interrupt::disable();
 
-    let itm = &mut *ITM::ptr();
+    let itm = unsafe { &mut *ITM::ptr() };
     let stim = &mut itm.stim[0];
 
-    itm::write_aligned(stim, &Aligned(*b"panicked at '"));
-    itm::write_fmt(stim, args);
-    itm::write_aligned(stim, &Aligned(*b"', "));
-    itm::write_str(stim, file);
-    iprintln!(stim, ":{}:{}", line, col);
+    iprintln!(stim, "{}", info);
 
     loop {}
 }
