@@ -30,18 +30,19 @@
 
 #![deny(missing_docs)]
 #![deny(warnings)]
-#![feature(panic_implementation)]
+#![feature(panic_handler)]
 #![no_std]
 
 #[macro_use]
 extern crate cortex_m;
 
 use core::panic::PanicInfo;
+use core::sync::atomic::{self, Ordering};
 
 use cortex_m::peripheral::ITM;
 use cortex_m::interrupt;
 
-#[panic_implementation]
+#[panic_handler]
 fn panic(info: &PanicInfo) -> ! {
     interrupt::disable();
 
@@ -50,5 +51,9 @@ fn panic(info: &PanicInfo) -> ! {
 
     iprintln!(stim, "{}", info);
 
-    loop {}
+    loop {
+        // add some side effect to prevent this from turning into a UDF instruction
+        // see rust-lang/rust#28728 for details
+        atomic::compiler_fence(Ordering::SeqCst)
+    }
 }

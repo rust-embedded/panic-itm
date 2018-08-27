@@ -2,11 +2,12 @@
 authors = ["Jorge Aparicio <jorge@japaric.io>"]
 categories = ["no-std"]
 description = "Log panic messages using the ITM (Instrumentation Trace Macrocell)"
+documentation = "https://rust-embedded.github.io/panic-itm/panic_itm"
 keywords = ["panic-impl", "panic", "ITM", "ARM", "Cortex-M"]
 license = "MIT OR Apache-2.0"
 name = "panic-itm"
-repository = "https://github.com/japaric/panic-itm"
-version = "0.2.0"
+repository = "https://github.com/rust-embedded/panic-itm"
+version = "0.2.1"
 
 [dependencies]
-cortex-m = "0.5.0"
+cortex-m = "0.5.6"
