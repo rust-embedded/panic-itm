@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [v0.3.0] - 2018-09-03
+
+### Changed
+
+- This crate no longer depends on `arm-none-eabi-gcc`.
+
+- [breaking-change] Move from the `panic_implementation` attribute to the
+  `panic_handler` attribute, which will be stabilized.
+
 ## [v0.2.0] - 2018-06-04
 
 ### Changed
