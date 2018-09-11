@@ -30,7 +30,6 @@
 
 #![deny(missing_docs)]
 #![deny(warnings)]
-#![feature(panic_handler)]
 #![no_std]
 
 #[macro_use]
