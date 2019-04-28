@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [v0.4.1] - 2019-04-28
+
+- Updated `cortex-m` version to not have the issue when linking multiple
+  versions of it.
+
 ## [v0.4.0] - 2018-09-10
 
 - [breaking-change] The `panic_handler` feature gate has been removed. This
@@ -41,7 +46,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 Initial release
 
-[Unreleased]: https://github.com/japaric/panic-itm/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/japaric/panic-itm/compare/v0.4.1...HEAD
+[v0.4.1]: https://github.com/japaric/panic-itm/compare/v0.4.0...v0.4.1
 [v0.4.0]: https://github.com/japaric/panic-itm/compare/v0.3.0...v0.4.0
 [v0.3.0]: https://github.com/japaric/panic-itm/compare/v0.2.0...v0.3.0
 [v0.2.0]: https://github.com/japaric/panic-itm/compare/v0.1.1...v0.2.0
