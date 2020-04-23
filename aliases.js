@@ -1,0 +1,12 @@
+var ALIASES = {};
+ALIASES['aligned'] = {};
+ALIASES['as_slice'] = {};
+ALIASES['bare_metal'] = {};
+ALIASES['cortex_m'] = {};
+ALIASES['generic_array'] = {};
+ALIASES['generic_array'] = {};
+ALIASES['panic_itm'] = {};
+ALIASES['stable_deref_trait'] = {};
+ALIASES['typenum'] = {};
+ALIASES['vcell'] = {};
+ALIASES['volatile_register'] = {};
